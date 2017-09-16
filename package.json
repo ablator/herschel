@@ -8,7 +8,8 @@
     "node": ">=4.0.0"
   },
   "scripts": {
-    "clean": "rimraf build/",
+    "clean": "rimraf build",
+    "distclean": "rimraf dist",
     "prebuild": "npm run clean",
     "build": "tsc",
     "lint": "tslint -c tslint.json 'src/**/*.ts' 'tests/**/*.ts'",
@@ -18,8 +19,11 @@
     "test": "npm run lint && npm run coverage",
     "preversion": "npm run-script test",
     "prepublish": "npm run build && npm run dist",
-    "dist": "ncp build/src dist"
+    "dist": "npm run distclean && ncp build/src dist"
   },
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ablator/herschel.git"
