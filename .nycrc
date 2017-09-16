@@ -1,0 +1,15 @@
+{
+  "include": [
+    "build/**/*.js"
+  ],
+  "exclude": [
+    "**/*.spec.js"
+  ],
+  "reporter": [
+    "lcov",
+    "text",
+    "text-summary"
+  ],
+  "cache": true,
+  "all": true
+}

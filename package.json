@@ -1,0 +1,55 @@
+{
+  "name": "herschel",
+  "version": "0.0.0",
+  "description": "NodeJS client library for the Ablator feature switching server",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "scripts": {
+    "clean": "rimraf build/",
+    "prebuild": "npm run clean",
+    "build": "tsc",
+    "lint": "tslint -c tslint.json 'src/**/*.ts' 'tests/**/*.ts'",
+    "unit-test": "alsatian 'build/tests/**/*.js' --tap",
+    "coverage": "nyc npm run unit-test",
+    "pretest": "npm run build",
+    "test": "npm run lint && npm run coverage",
+    "preversion": "npm run-script test",
+    "prepublish": "npm run build && npm run dist",
+    "dist": "ncp build/src dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ablator/herschel.git"
+  },
+  "keywords": [
+    "feature",
+    "toggle",
+    "flag",
+    "switch"
+  ],
+  "author": "Eduardo Weiland <eduardo@eduardoweiland.info> (https://eduardoweiland.info)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ablator/herschel/issues"
+  },
+  "homepage": "http://ablator.io",
+  "devDependencies": {
+    "@types/got": "^7.1.4",
+    "@types/node": "^8.0.28",
+    "@types/url-assembler": "^1.2.0",
+    "alsatian": "^2.0.0",
+    "ncp": "^2.0.0",
+    "nyc": "^11.0.3",
+    "rimraf": "^2.6.2",
+    "tslint": "^5.5.0",
+    "tslint-eslint-rules": "^4.1.1",
+    "typescript": "^2.5.2"
+  },
+  "dependencies": {
+    "got": "^7.1.0",
+    "url-assembler": "^1.2.9"
+  }
+}
