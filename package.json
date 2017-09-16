@@ -1,6 +1,6 @@
 {
   "name": "herschel",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "NodeJS client library for the Ablator feature switching server",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
